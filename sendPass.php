@@ -53,7 +53,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'sendPass') {
         $mail->Body = 'This is your confirm password: ' . $memberForgetPass['confirmPass'];
 
         $mail->send();
-        header("location: memberForgetPass.php");
+         echo
+            "<script>
+            alert('ส่งรหัสให้สมาชิกแล้ว');
+            document.location.href = 'memberForgetPass.php';
+            </script>
+            ";
+
         exit;
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
